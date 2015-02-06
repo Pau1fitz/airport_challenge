@@ -1,6 +1,6 @@
 require 'airport.rb'
   
-describe Airport do
+describe Airport do 
 
 let(:airport) {Airport.new}
 let(:plane) {double :plane}
@@ -14,5 +14,12 @@ let(:plane) {double :plane}
     airport.dock_plane(plane)
     expect(airport.plane_count).to eq(1)
   end
+
+  it 'should not allow planes land if full' do
+    6.times{ airport.dock_plane(plane) }
+    expect{ airport.dock_plane(plane) }.to raise_error(RuntimeError, "Airport is full")
+    
+  end
+
 
 end
