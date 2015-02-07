@@ -11,7 +11,7 @@ Land. When a plane lands, it's status changes to 'Landed' and it is stored in th
 Take Off. When a plane is ready to leave the airport, weather permitting, it has the abilty to leave the hangar and take off, following which it's status is changed to "Flying".
 
 <h4>Airport
-Each instance of the Aiport class can:
+<p>Each instance of the Aiport class can:
 Store Planes. The Airport has been initilaized with a hangar that can be used to store planes.
 Communicate with the Weather module. Each instance of the Airport class can determine whether or not planes can land and take off dependent on the weather forecast. If the weather is stormy planes can neither land, nor take off.
 
