@@ -49,7 +49,6 @@ it 'should not accept a plane and raise error when full' do
   it 'should not allow a plane to land if stormy' do
     allow(airport).to receive(:stormy?).and_return true
     expect{ airport.land(plane) }.to raise_error "Cannot land due to storm"
-
   end
 end
  

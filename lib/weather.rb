@@ -1,10 +1,11 @@
 module Weather
+  CHANCE_OF_SUNNY_WEATHER = 70
 
   def stormy?
-    if rand < 0.8
-      "stormy"
-    else
-      "sunny"
-    end
-end
+    forecast > CHANCE_OF_SUNNY_WEATHER
+  end
+
+  def forecast
+    rand(1..100)
+  end
 end

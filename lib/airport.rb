@@ -20,12 +20,11 @@ class Airport
   def land(plane)
     if full?
       @holder.clear
+       
       raise "Airport is full"
     end
-    plane.status = "Landed"
+   plane.status = "Landed"
     @holder << plane
-    
-
     if stormy?
      raise "Cannot land due to storm"
     end
