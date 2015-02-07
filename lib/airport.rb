@@ -1,9 +1,15 @@
+require_relative 'weather'
+
 class Airport
 
-  DEFAULT_CAPACITY = 6
+  include Weather
+
+  attr_accessor :hangar
+
+  DEFAULT_CAPACITY = 2
 
   def initialize(options = {})
-    @capacity = options.fetch(:capacity, DEFAULT_CAPACITY) 
+    @capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
     @hangar = []
   end
 
@@ -11,15 +17,24 @@ class Airport
     @hangar.length
   end
 
-  def dock_plane(plane)
-    raise "Airport is full" if full?
-    @hangar << plane
-    plane.land
+  def land(plane)
+    raise "There is a storm a brewing" if is_stormy?
+    if full?
+    plane.status = "Flying"
+    @hangar.clear
+
+    raise 'Airport is full'
+    end
+    @hangar << plane 
+    plane.status = "Landed"
+  
+  end
+
+  def remove(plane)
+    @hangar.delete(plane)
   end
 
   def full?
-    plane_count >= @capacity
+    plane_count == @capacity 
   end
-
-
 end

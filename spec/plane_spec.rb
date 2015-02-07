@@ -1,25 +1,11 @@
-require 'plane.rb' 
+require 'plane'
 
-describe Plane do
+describe Plane do 
 
-  let(:plane) {Plane.new}
+  let(:plane){Plane.new}
+  let(:airport){double :airport}
 
-  it 'should be flying when created' do
-    expect(plane).to be_flying
-  end
-
-  it 'should be able to land' do
-    plane.land
-    expect(plane).not_to be_flying
-  end
-
-  it 'should have flying status when flying' do
+  it 'has a flying status when created' do
     expect(plane.status).to eq "Flying"
   end
-
-  it 'should have landed status when landed' do
-    plane.land
-    expect(plane.status).to eq "Landed"
-  end
-
 end

@@ -1,20 +1,24 @@
+require_relative 'weather'
+
 class Plane
 
+  include Weather
+
+  attr_accessor :status
+
   def initialize
-    @flying = true
-  end
-
-  def flying?
-    @flying
-  end
-
-  def land
-    @flying = false
+    @status = "Flying"
   end
 
   def status
-    return 'Flying' if @flying
-    return 'Landed' if @flying == false
+    @status
   end
 
-end   
+  def take_off(airport)
+    @status = "Flying"
+    airport.remove(self)
+    if airport.full?
+      airport.clear
+    end
+  end
+end
