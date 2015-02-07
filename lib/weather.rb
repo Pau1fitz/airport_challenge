@@ -1,9 +1,10 @@
 module Weather
 
- def is_stormy?
-    if rand > 0.8
-      true
-    end    
+  def stormy?
+    if rand < 0.8
+      "stormy"
+    else
+      "sunny"
   end
-
+end
 end
