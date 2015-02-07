@@ -1,6 +1,6 @@
 <h1>Airport Challenge
 
-Software which tracks the movement of planes landing and taking off from an airport. There is also a weather component which impacts the planes ability to fly. The program contains the following classes and module. TDD was implemented to develop this software using rspec.
+Software which tracks the movement of planes landing and taking off from an airport. There is also a weather component which impacts a plane's ability to fly. The program contains the following classes and module. TDD was implemented to develop this software using rspec.
 
 <h3>Classes
 <h4>Plane
