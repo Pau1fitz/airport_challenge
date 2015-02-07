@@ -1,6 +1,6 @@
 <h1>Airport Challenge
 
-Software which tracks the movement of planes landing and taking off from an airport. There is also a weather component which impacts a plane's ability to fly. The program contains the following classes and module. TDD was implemented to develop this software using rspec.
+Software which tracks the movement of planes landing and taking off from an airport. There is also a weather component which impacts a plane's ability to fly. The program contains the following classes and module. TDD was implemented to develop this software using rspec. Class Responsibility Collaborator (CRC) Modeling methodology was used to gather and define the user requirements for this object-oriented application. 
 
 <h3>Classes
 <h4>Plane
@@ -23,10 +23,6 @@ Each instance of a Plane can:
 <h3>Module
 <h4>Weather
 <p>A weather module was created to determine if the forecast was stormy or sunny, each of which had an impact on whether planes can land or take-off.
-
-<h4>CRC
-
-Class Responsibility Collaborator (CRC) Modeling methodology was used to gather and define the user requirements for this object-oriented application. 
 
 <h4>How to use
 <h2>Clone the repository with
