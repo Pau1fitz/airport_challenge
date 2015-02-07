@@ -5,6 +5,6 @@ module Weather
       "stormy"
     else
       "sunny"
-  end
+    end
 end
 end

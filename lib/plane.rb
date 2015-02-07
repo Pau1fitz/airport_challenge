@@ -1,11 +1,17 @@
+require_relative 'weather'
+
 class Plane
 
-  def initialize 
-    @status 
+  attr_accessor :status
+
+include Weather
+  
+ def initialize
+    @status  = "Flying"
   end
 
   def status
-    @status = "Flying"
+    @status
   end
 
 end

@@ -1,4 +1,10 @@
+require_relative 'weather'
+
 class Airport
+
+  include Weather
+
+  attr_accessor :holder, :status
 
   DEFAULT_CAPACITY = 6
 
@@ -12,9 +18,17 @@ class Airport
   end
 
   def land(plane)
-    raise "Airport is full" if full?
+    if full?
+      @holder.clear
+      raise "Airport is full"
+    end
+    plane.status = "Landed"
     @holder << plane
-    plane.status 
+    
+
+    if stormy?
+     raise "Cannot land due to storm"
+    end
   end
 
   def take_off(plane)
