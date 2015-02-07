@@ -1,38 +1,38 @@
 require 'airport'
+#require 'plane'
 
 describe Airport do
+#describe Plane do 
+   
 
 let(:airport) {Airport.new}
-let(:plane) {double :plane}
-let(:landed_plane){double :landed_plane, status: "Landed"}
-let(:flying_plane){double :flying_plane, status: "Flying"}
+let(:plane) {double :plane, status: 'Flying'}
 
-
-  it 'should have no planes in hangar at beginning' do
-    expect(airport.plane_count).to eq(0)
-  end  
-
-  it 'should have a plane in hangar after a plane lands' do
-    airport.land(plane)
-    expect(airport.plane_count).to eq(1)
-    expect(landed_plane).to receive(:status)
-  end
-
-  it 'should allow plane to leave hangar and take off' do
-    airport.land(plane)
-    expect(landed_plane).to receive(:status)
-    airport.take_off(plane)
-    expect(flying_plane).to receive(:status)
-    expect(airport.plane_count).to eq(0)
-  end
-
-  it 'should not allow a plane land if full' do
-    10.times{airport.land(plane)}
-    expect{ airport.land(plane)}.to raise_error(RuntimeError, 'Airport is full')
-  end
-
-  it 'should change status of plane to flying after take off' do
-    airport.take_off(plane)
-    expect(flying_plane).to receive(:status)
-  end
+it 'should allow a plane to land' do
+  expect(airport.plane_count).to eq(0)
+  airport.land(plane)
+  expect(airport.plane_count).to eq(1)
+  
 end
+
+it 'should allow a plane take off' do
+  airport.land(plane)
+  expect(airport.plane_count).to eq(1)
+  airport.take_off(plane)
+  expect(airport.plane_count).to eq(0)
+end
+
+it 'should know when it is full' do
+  expect(airport).not_to be_full
+  6.times {airport.land(plane)}
+  expect(airport).to be_full
+end
+
+it 'should not accept a plane and raise error when full' do
+  5.times {airport.land(plane)}
+  airport.land(plane)
+  expect(lambda { airport.land(plane) }).to raise_error(RuntimeError, 'Airport is full')
+  end
+  #end
+end
+
