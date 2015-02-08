@@ -1,6 +1,6 @@
 <h1>Airport Challenge
 
-Software which tracks the movement of planes landing and taking off from an airport. There is also a weather component which impacts a plane's ability to fly. TDD was implemented to develop this software using rspec. Class Responsibility Collaborator (CRC) Modeling methodology was used to gather and define the user requirements for this object-oriented application. The program contains the following classes and modules.
+Software developed following the principles of OOD. The program tracks the movement of planes landing and taking off from an airport. There is also a weather component which impacts a plane's ability to fly. TDD was implemented to develop this software using rspec. Class Responsibility Collaborator (CRC) Modeling methodology was used to gather and define the user requirements for this object-oriented application. The program contains the following classes and modules.
 
 <h3>Classes
 ------------
