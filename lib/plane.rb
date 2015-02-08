@@ -7,7 +7,7 @@ class Plane
 include Weather
   
  def initialize
-    @status  = "Flying"
+    @status = "Flying"
   end
 
   def status

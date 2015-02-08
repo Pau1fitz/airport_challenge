@@ -50,8 +50,28 @@ it 'should not accept a plane and raise error when full' do
     allow(airport).to receive(:stormy?).and_return true
     expect{ airport.land(plane) }.to raise_error "Cannot land due to storm"
   end
-end
- 
+
+  it 'should not allow a plane take off if stormy' do
+    allow(airport).to receive(:stormy?).and_return true
+    expect {airport.take_off(plane) }.to raise_error "Cannot land due to storm"
+  end
   
+  context 'Final tests' do
+
+  it 'should be possible for all six planes to land and have landed status' do
+    allow(airport).to receive(:stormy?).and_return false 
+    6.times {airport.land(plane)}
+    expect(plane.status).to eq "Landed"
+  end
+
+  it 'should have an empty hangar after all planes landed and planes should have flying status' do
+    allow(airport).to receive(:stormy?).and_return false
+    6.times {airport.land(plane)}
+    expect(lambda { airport.land(plane) }).to raise_error(RuntimeError, "Airport is full")
+    expect(airport.plane_count).to eq(0)
+    expect(plane.status).to eq "Flying"
+  end
+end
+end
 end
 
