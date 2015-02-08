@@ -38,6 +38,7 @@ Switch to it with
 
 ```cd airport_challenge```
 
+![instructions](https://github.com/Pau1fitz/airport_challenge/blob/master/Instructions.png)
 
 
 If you have rspec installed you can also run the tests with
