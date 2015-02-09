@@ -6,13 +6,22 @@ class Plane
 
 include Weather
   
- def initialize
-    @status = "Flying"
-  end
+def initialize
+  @status = :flying 
+end
 
-  def status
-    @status
-  end
+def land
+  @status = :landed
+end
+
+def take_off
+  raise "Already flying" if flying?
+  self.status :flying 
+end
+
+def flying?
+  status == :flying
+end
 
 end
 

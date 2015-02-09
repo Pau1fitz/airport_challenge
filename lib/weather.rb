@@ -1,11 +1,12 @@
 module Weather
-  CHANCE_OF_SUNNY_WEATHER = 70
+
+  CHANCE_OF_STORM = 25
 
   def stormy?
-    forecast > CHANCE_OF_SUNNY_WEATHER
+    forecast < CHANCE_OF_STORM
   end
 
   def forecast
-    rand(1..100)
+    rand(100)
   end
 end

@@ -7,11 +7,14 @@ end
 describe Weather do
 
   let(:weather) {WeatherHolder.new}
-  let (:stormy_weather){double :weather, stormy?: true}
-  let(:sunny_weather) {double :weather, sunny?: true}
 
-it 'should be either sunny or stormy' do
-  expect(stormy_weather).to be_stormy
-  expect(sunny_weather).to be_sunny
+it 'can be stormy' do
+  allow(weather).to receive(:stormy?).and_return(true)
+  expect(weather).to be_stormy
+end
+
+it 'can be sunny' do
+  allow(weather).to receive(:stormy?).and_return(false)
+  expect(weather).to_not be_stormy
 end
 end
